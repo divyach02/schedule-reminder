@@ -1,0 +1,31 @@
+<div class='page-header'>
+  <h2>Login</h2>
+</div>
+
+<div class="sub-container">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row form-group">
+      <div class="col-md-6">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-md-6">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log in", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  <br/>
+  <div class="row">
+    <div class="col-md-12">
+      <%= link_to "Signup", new_user_registration_path %>
+    </div>
+  </div>
+</div>
