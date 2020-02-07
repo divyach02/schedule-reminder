@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require bootstrap-clockpicker
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks

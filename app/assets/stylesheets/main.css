@@ -1,0 +1,58 @@
+:root {
+  --main-color: #f4f4f4;
+}
+#navbarSupportedContent {
+  justify-content: flex-end;
+}
+
+.head-bg {
+  background-color: var(--main-color);
+}
+
+.main-container{
+  background-color: var(--main-color);
+  width: 100%;
+  height: 420px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  float: none;
+}
+
+.sub-container {
+  background-color: var(--main-color);
+  width: 100%;
+  padding: 10px 15px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.container-fluid {
+  margin-bottom: 60px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.list-group-item {
+  display: list-item;
+}
+.table th, .table td {
+  vertical-align: middle;
+}
+.table thead th:last-child,
+.table tbody td:last-child {
+  width: 22%;
+}
+.month-selector {
+  width: 65px;
+}
+.month-direction label {
+  margin: 0 20px 0 5px;
+}
