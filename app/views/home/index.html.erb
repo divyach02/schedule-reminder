@@ -1,4 +1,4 @@
-<div class='page-header'>
+<div class='card-header'>
   <h2>Schedule Reminders</h2>
 </div>
 <div class="main-container">
@@ -8,7 +8,7 @@
       <p>Welcome to Schedule Reminders.</p>
       <p>Here you can create schedules and send reminders of the same to specified users.</p>
       <% if user_signed_in? %>
-        <%= link_to 'Reminders', "javascript:void(0);", class: 'btn btn-info pull-left' %>
+        <%= link_to 'Events', events_path, class: 'btn btn-info pull-left' %>
       <% else %>
         <%= link_to 'Signup', new_user_registration_path, class: 'btn btn-info pull-left' %>
       <% end %>
