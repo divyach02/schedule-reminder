@@ -1,0 +1,55 @@
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= form.label :title, class: "font-weight-bold" %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6">
+      <%= form.label :description, class: "font-weight-bold" %>
+      <%= form.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6 month-direction">
+      <%= form.collection_radio_buttons :month_direction, [['start_of_month', 'Start of Month'] ,['end_of_month', 'End of month']], :first, :last , style: "display:inline", default: true %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-md-6 d-flex align-items-center">
+      <%= form.label 'Every', class: "mr-2 mb-0" %>
+      <%= form.select(:month_day, days_for_select, {}, {class: 'form-control mr-2 month-selector'}) %><span class="month-day"><%= form.object.month_day&.ordinalize&.tr("0-9", "") %> day</span>
+    </div>
+  </div>
+
+  <div class="form-group row clockpicker">
+    <div class="col-md-3">
+      <div class="input-group mb-3">
+        <%= form.text_field :time, value: (@event.time.present? ? @event.time.strftime("%H:%M %p") : form.object.time ), class: 'form-control' %>
+        <div class="input-group-append" id="clock-icon">
+          <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<br/>

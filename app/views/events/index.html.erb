@@ -1,0 +1,39 @@
+<div class="card-header d-flex align-items-center justify-content-between">
+  <h2>Events</h2>
+  <%= link_to 'Create Event', new_event_path, class: 'btn btn-primary pull-right' %>
+</div>
+<div class="card-body">
+  <% if @events.blank? %>
+    <div>
+      <h3> No event created yet!!!!</h3>
+    </div>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Day</th>
+          <th scope="col">Time</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.title %></td>
+            <td><%= event.description %></td>
+            <td><%= day_of_month(event.month_schedule_day) %></td>
+            <td><%= event.time.strftime("%H:%M %p") %></td>
+            <td>
+              <%= link_to 'View', event_path(event), class: 'btn btn-outline-success' %>
+              <%= link_to 'Edit', edit_event_path(event), class: 'btn btn-outline-primary' %>
+              <%= link_to 'Remove', event_path(event), remote: true, class: 'btn btn-outline-danger delete_group', method: :delete, data: {confirm: 'Are you sure?'} %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

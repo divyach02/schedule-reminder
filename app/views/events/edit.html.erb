@@ -1,0 +1,15 @@
+<div class='card-header'>
+  <h2>Editing Event</h2>
+</div>
+
+<div class="card-body">
+  <%= render 'form', event: @event %>
+</div>
+<div class="card-footer">
+  <div class="row">
+    <div class="col-12">
+      <%= link_to 'Show', @event, class: "btn btn-outline-primary mr-3" %>
+      <%= link_to 'Back', events_path, class: "btn btn-outline-dark" %>
+    </div>
+  </div>
+</div>
